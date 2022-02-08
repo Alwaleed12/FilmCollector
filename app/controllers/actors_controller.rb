@@ -18,5 +18,34 @@ class ActorsController < ApplicationController
 	# creae method gets called when the Create button is pushed on
 	# the actors new.html.erb.
 	def create
+		# call constructor of Actor model class giving it the 
+		# first name and last name paramters input in the actos
+		# new.html.erb
+		# constrctor creates Actor model bject which is stroed
+		# in variable
+		actor = Actor.new(actor_params)
+		# call save method on Actor object
+		# save method inserts the data in the Actor model object
+		# into the actor table
+		if actor.save
+			# if the save method succeeds, request the actors URL
+			# which will rendor the actors index.html.erb in the browser
+			redirect_to "/actors"
+		else 
+			# get full messages associated with errors
+			# store them in a Rails flash object named errors so that
+			# the full messages may be displayed in the actors new.html.erb
+			flash[:errors] = actor.errors.full_messages
+			# if the save method fails, request the actors/new URL
+			# which will rendor the actors new.html.erb in the browser
+			redirect_to "/actors/new"
+		end
+	end
+
+	private 
+	def actor_params
+		# params is a Rails object that gets the specified request
+		# paramters
+		params.require(:actor).permit(:first_name, :last_name)
 	end
 end
