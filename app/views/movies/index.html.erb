@@ -1,1 +1,39 @@
-<h1>View Movies</h1>
+<!--
+	pluralize is a Ruby method that return the plural form of the word in the string. 
+	if the first parameter, count, is specified, the singular form of the string will
+	be returned if count == 1. for any other alue of count, the plural form of the 
+	string will be returned.
+	count is a Ruby method that returns the number of elements in the array of movie 
+	objects.
+-->
+<h1>View <%= pluralize(@movies.count, "Movie") %></h1>
+<table>
+	<thead>
+		<th>Title</th>
+		<th>Duration</th>
+		<th>Rating</th>
+		<th>Release Date</th>
+		<th>Actions</th>
+	</thead>
+	<tbody>
+		<!--
+			each is a Ruby method that iterates over a code block for each element in the
+			array of movie objects.
+			(loop)
+		-->
+		<% @movies.each do |movie| %>
+		<tr>
+			<td><%= movie.title %></td>
+			<td><%= movie.duration %></td>
+			<td><%= movie.rating %></td>
+			<td><%= movie.release_date %></td>
+			<td>
+				<a href="/movies/<%= movie.id %>">Show</a> |
+				<a href="/movies/<%= movie.id %>/edit">Edit</a> |
+				<a href="/movies/<%= movie.id %>/delete">Delete</a>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<a href="/movies/new">Create Movie</a>

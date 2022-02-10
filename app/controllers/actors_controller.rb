@@ -15,13 +15,13 @@ class ActorsController < ApplicationController
 	def new
 	end
 
-	# creae method gets called when the Create button is pushed on
+	# create method gets called when the Create button is pushed on
 	# the actors new.html.erb.
 	def create
 		# call constructor of Actor model class giving it the 
 		# first name and last name paramters input in the actos
 		# new.html.erb
-		# constrctor creates Actor model bject which is stroed
+		# constrctor creates Actor model object which is stroed
 		# in variable
 		actor = Actor.new(actor_params)
 		# call save method on Actor object

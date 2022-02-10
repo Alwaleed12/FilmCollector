@@ -1,0 +1,25 @@
+<h1>Create Movie</h1>
+<form action="/movies" method="post">
+	<div>
+		<label>Title:</label>
+		<input type="text" name="movie[title]">
+	</div>
+	<div>
+		<label>Duration:</label>
+		<input type="text" name="movie[duration]">
+	</div>
+	<div>
+		<label>Rating:</label>
+		<input type="text" name="movie[rating]">
+	</div>
+	<div>
+		<label>Release Date:</label>
+		<input type="text" name="movie[release_date]">
+	</div>
+	<input type="submit" value="Create">
+</form>
+<% if flash[:errors] %>
+	<% flash[:errors].each do |e| %>
+	<div><%= e %></div>
+	<% end %>
+<% end %>
