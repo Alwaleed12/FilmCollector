@@ -1,0 +1,29 @@
+<!--
+	pluralize is a Ruby method that return the plural form of the word in the string. 
+	if the first parameter, count, is specified, the singular form of the string will
+	be returned if count == 1. for any other alue of count, the plural form of the 
+	string will be returned.
+	count is a Ruby method that returns the number of elements in the array of movie 
+	objects.
+-->
+<h1>View Movie's <%= pluralize(@actors.count, "Actor") %></h1>
+<table>
+	<thead>
+		<th>First Name</th>
+		<th>Last Name</th>
+	</thead>
+	<tbody>
+		<!--
+			each is a Ruby method that iterates over a code block for each element in the
+			array of movie objects.
+			(loop)
+		-->
+		<% @actors.each do |actor| %>
+		<tr>
+			<td><%= actor.first_name %></td>
+			<td><%= actor.last_name %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<a href="/movies">View Movies</a>

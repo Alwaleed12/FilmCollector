@@ -42,6 +42,19 @@ class MoviesController < ApplicationController
 		end
 	end
 
+	# show method gets called when the actors/:id URL is requested 
+	# show method is mappled to the actors show.html.erb
+	def show
+		# call find method on Actor model class giving it the id sent
+		# in the request
+		# find method selects all of the data in the actor table where
+		# the id is equal to the id sent in the request 
+		# selected data will be reutrned in an array of movie objects 
+		# store the array of movie objects in an instance variable 
+		# instance variable is available to actors show.html.erb
+		@actors = Movie.find(params[:id]).actors
+	end 
+
 	private 
 	def movie_params
 		# params is a Rails object that gets the specified request
