@@ -1,7 +1,9 @@
 class Actor < ApplicationRecord
 	# has_many mehtod specifies a one to many relationship
 	# appearances option specifies that one actor has many appearances
-	has_many :appearances
+	# destroy causes all appearances to be destroyed when their
+	# related actor is destroyed
+	has_many :appearances, dependent: :destroy
 	# movies option specifies that one actor has many movies
 	# the through option specifies that the relationship exists
 	# only through appearances
