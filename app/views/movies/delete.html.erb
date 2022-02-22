@@ -1,0 +1,21 @@
+<h1>Delete <%= @movie.title %></h1>
+<form action="/movies/<%= @movie.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<div>
+		<label>Title:</label>
+		<input type="text" name="movie[title]" value="<%= @movie.title%>" disabled>
+	</div>
+	<div>
+		<label>Duration:</label>
+		<input type="text" name="movie[duration]" value="<%= @movie.duration%>" disabled>
+	</div>
+	<div>
+		<label>Rating:</label>
+		<input type="text" name="movie[rating]" value="<%= @movie.rating%>" disabled>
+	</div>
+	<div>
+		<label>Duration:</label>
+		<input type="text" name="movie[duration]" value="<%= @movie.duration%>" disabled>
+	</div>
+	<input type="submit" value="Delete">
+</form>

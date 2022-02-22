@@ -113,7 +113,7 @@ class ActorsController < ApplicationController
 	# destroy method gets called when the Delete button is pushed on the 
 	# actors delete.html.erb
 	def destroy
-		@actor = Actor.find(params[:id])
+		actor = Actor.find(params[:id])
 		actor.destroy
 		redirect_to "/actors"
 	end

@@ -1,0 +1,25 @@
+<h1>Edit <%= @movie.title %></h1>
+<form action="/movies/<%= @movie.id %>" method="post">
+	<div>
+		<label>Title:</label>
+		<input type="text" name="movie[title]" value="<%= @movie.title%>">
+	</div>
+	<div>
+		<label>Duration:</label>
+		<input type="text" name="movie[duration]" value="<%= @movie.duration%>">
+	</div>
+	<div>
+		<label>Rating:</label>
+		<input type="text" name="movie[rating]" value="<%= @movie.rating%>">
+	</div>
+	<div>
+		<label>Released Date:</label>
+		<input type="text" name="movie[release_date]" value="<%= @movie.release_date%>">
+	</div>
+	<input type="submit" value="Update">
+</form>
+<% if flash[:errors] %>
+	<% flash[:errors].each do |e| %>
+	<div><%= e %></div>
+	<% end %>
+<% end %>
