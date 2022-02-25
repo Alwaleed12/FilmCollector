@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   post "movies/:id" => "movies#update"
   get "movies/:id/delete" => "movies#delete"
   delete "movies/:id" => "movies#destroy"
+  get "appearances" => "appearances#index"
+  post "appearances" => "appearances#create"
 end

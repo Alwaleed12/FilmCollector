@@ -1,0 +1,27 @@
+<h1>Create Appearance</h1>
+<form action="/appearance" method="post">
+	<div>
+		<label>Actor:</label>
+		<select name="appearance[actor_id]">
+			<option></option>
+			<% @actors.each do |actor| %>
+			<option value="<%= actor.id %>"><%= actor.first_name %> <%= actor.last_name %></option>
+			<% end %>
+		</select>
+	</div>
+	<div>
+		<label>Movie:</label>
+		<select name="appearance[movie_id]">
+			<option></option>
+			<% @movies.each do |movie| %>
+			<option value="<%= movie.id %>"><%= movie.title %></option>
+			<% end %>
+		</select>
+	</div>
+	<input type="submit" value="Create">
+</form>
+<% if flash[:errors] %>
+	<% flash[:errors].each do |e| %>
+	<div><%= e %></div>
+	<% end %>
+<% end %>

@@ -1,9 +1,9 @@
 <h1>View <%= pluralize(@actors.count, "Actor") %></h1>
-<table>
+<table class="table table-striped">
 	<thead>
-		<th>First Name</th>
-		<th>Last Name</th>
-		<th>Actions</th>
+		<th scope="col">First Name</th>
+		<th scope="col">Last Name</th>
+		<th scope="col">Actions</th>
 	</thead>
 	<tbody>
 		<% @actors.each do |actor| %>
