@@ -2,7 +2,7 @@
 <form action="/rating/new" method="post">
 		<div>
 		<label>Title:</label>
-		<select name="ratings[movie]">
+		<select name="ratings[movie_id]">
 			<option></option>
 			<% @movies.each do |movie| %>
 			<option value="<%= movie.id %>"><%= movie.title %></option>
