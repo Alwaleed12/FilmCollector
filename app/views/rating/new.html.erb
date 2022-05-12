@@ -1,0 +1,34 @@
+<h1>Create Movie Rating</h1>
+<form action="/rating/new" method="post">
+		<div>
+		<label>Title:</label>
+		<select name="ratings[movie]">
+			<option></option>
+			<% @movies.each do |movie| %>
+			<option value="<%= movie.id %>"><%= movie.title %></option>
+			<% end %>
+		</select>
+	</div>
+	<div>
+		<label>Rating:</label>
+		<select name="ratings[rating]">
+  			<option></option>
+  			<option value="masterpiece">Masterpiece</option>
+  			<option value="excellent">Excellent</option>
+ 			<option value="very good">Very Good</option>
+ 			<option value="good">Good</option>
+ 			<option value="not bad">Not Bad</option>
+ 			<option value="meh">Meh</option>
+ 			<option value="nice try">Nice Try, But No Cigar</option>
+ 			<option value="bad">Bad</option>
+ 			<option value="aweful">Aweful</option>
+ 			<option value="do not want">Do Not Want</option>
+		</select>
+	</div>
+	<input type="submit" value="Create">
+</form>
+<% if flash[:errors] %>
+	<% flash[:errors].each do |e| %>
+	<div><%= e %></div>
+	<% end %>
+<% end %>
